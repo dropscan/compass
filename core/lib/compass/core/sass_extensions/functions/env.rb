@@ -51,7 +51,7 @@ module Compass::Core::SassExtensions::Functions::Env
   declare :current_output_file, [:absolute]
 
   def compass_extensions
-    exts = Sass::Util.ordered_hash(identifier("compass") => quoted_string(Compass::Core::VERSION))
+    exts = { identifier("compass") => quoted_string(Compass::Core::VERSION) }
     if defined?(Compass::Frameworks::ALL)
       Compass::Frameworks::ALL.each do |framework|
         next if framework.name == "compass"
